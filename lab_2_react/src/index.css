@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* Темна тема вмикається класом .dark на головній обгортці (див. App.jsx) */
+@custom-variant dark (&:where(.dark, .dark *));

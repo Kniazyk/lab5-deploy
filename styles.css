@@ -1,0 +1,420 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* padding і border входять у ширину елемента */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #f3f4f6;
+}
+
+header {
+  margin: 0;
+  padding: 40px 24px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #0f766e;
+  border-bottom: 4px solid #134e4a;
+}
+
+h2 {
+  margin: 0 0 12px;
+}
+
+h3 {
+  margin: 12px 0 4px;
+  color: #111827;
+}
+
+p {
+  margin: 0 0 8px;
+}
+
+ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+#page-title {
+  margin: 0 0 8px;
+  font-size: 2.5rem;
+}
+
+#about {
+  border-left: 8px solid #0f766e; /* акцент лише для блоку «Про мене» */
+}
+
+.role {
+  margin: 0;
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+main {
+  display: flex;          /* головний контейнер */
+  flex-wrap: wrap;        /* картки переносяться на новий рядок */
+  gap: 24px;              /* відстань між картками */
+  max-width: 1000px;
+  margin: 32px auto;      /* центрування по горизонталі */
+  padding: 0 24px;
+}
+
+section {
+  flex: 1 1 calc(50% - 24px); /* дві картки в ряд */
+  margin: 0;
+  padding: 20px 24px;
+  background-color: #ffffff;
+  border: 2px solid #d1d5db;
+  border-radius: 12px;
+}
+
+section h2 {
+  padding-bottom: 8px;
+  color: #0f766e;
+  border-bottom: 2px solid #99f6e4;
+}
+
+section:hover {
+  border-color: #0f766e;
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* :hover і :focus для посилань */
+a:hover,
+a:focus {
+  color: #f59e0b;
+}
+
+/* :focus-visible: помітна рамка при навігації клавіатурою (Tab) */
+a:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+footer {
+  margin-top: 32px;
+  padding: 24px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #134e4a;
+}
+
+footer a {
+  color: #99f6e4;
+}
+
+/* атрибут href починається з "mailto:" -> посилання на пошту */
+a[href^="mailto:"] {
+  font-weight: bold;
+}
+
+/* атрибут href починається з "https://" -> зовнішнє посилання */
+a[href^="https://"] {
+  text-decoration: underline dotted;
+}
+
+@media (max-width: 700px) {
+  main {
+    flex-direction: column; /* картки одна під одною */
+    flex-wrap: nowrap;
+    margin: 20px auto;
+    padding: 0 16px;
+  }
+
+  section {
+    flex: 1 1 auto;
+  }
+
+  #page-title {
+    font-size: 1.75rem;
+  }
+
+  header {
+    padding: 28px 16px;
+  }
+}
+
+/* ===================== Лабораторна робота №4 ===================== */
+
+header {
+  position: relative; /* для позиціювання перемикача теми */
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* Відгуки: картка на всю ширину, всередині - сітка */
+#reviews {
+  flex-basis: 100%;
+}
+
+.reviews-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.review {
+  padding: 16px;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.review h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.review .review-email {
+  margin: 0 0 8px;
+  font-size: 0.875rem;
+  color: #0f766e;
+}
+
+.review p:last-child {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* Системна інформація у футері */
+.system-info {
+  max-width: 800px;
+  margin: 24px auto 0;
+  padding-top: 16px;
+  text-align: left;
+  border-top: 1px solid #0f766e;
+}
+
+.system-info h3 {
+  margin: 0 0 8px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.system-info dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 16px;
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.system-info dt {
+  font-weight: bold;
+  color: #99f6e4;
+}
+
+.system-info dd {
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Модальне вікно */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 440px;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  color: #0f766e;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.modal-content input,
+.modal-content textarea {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 12px;
+  font: inherit;
+  color: inherit;
+  background: #ffffff;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+  outline: none;
+  border-color: #0f766e;
+}
+
+#form-status {
+  min-height: 1.6em;
+  font-size: 0.875rem;
+}
+
+#form-status.success {
+  color: #15803d;
+  font-weight: bold;
+}
+
+#form-status.error {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-actions button {
+  padding: 8px 16px;
+  font: inherit;
+  font-weight: bold;
+  color: #ffffff;
+  background: #0f766e;
+  border: 2px solid #0f766e;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modal-actions button[type="button"] {
+  color: inherit;
+  background: transparent;
+  border-color: #d1d5db;
+}
+
+.modal-actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* ---------- Темна тема (html[data-theme="dark"]) ---------- */
+html[data-theme="dark"] body {
+  color: #e5e7eb;
+  background-color: #111827;
+}
+
+html[data-theme="dark"] header {
+  background-color: #134e4a;
+  border-bottom-color: #0b2f2c;
+}
+
+html[data-theme="dark"] h3 {
+  color: #f3f4f6;
+}
+
+html[data-theme="dark"] section {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+html[data-theme="dark"] section h2 {
+  color: #5eead4;
+  border-bottom-color: #115e59;
+}
+
+html[data-theme="dark"] section:hover {
+  border-color: #14b8a6;
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
+}
+
+html[data-theme="dark"] #about {
+  border-left-color: #14b8a6;
+}
+
+html[data-theme="dark"] footer {
+  background-color: #0b2f2c;
+}
+
+html[data-theme="dark"] .review {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+html[data-theme="dark"] .review .review-email {
+  color: #5eead4;
+}
+
+html[data-theme="dark"] .modal-content {
+  color: #e5e7eb;
+  background: #1f2937;
+}
+
+html[data-theme="dark"] .modal-content h2 {
+  color: #5eead4;
+}
+
+html[data-theme="dark"] .modal-content input,
+html[data-theme="dark"] .modal-content textarea {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+html[data-theme="dark"] .modal-actions button[type="button"] {
+  border-color: #4b5563;
+}
+
+@media (max-width: 700px) {
+  .theme-toggle {
+    position: static;
+    margin-bottom: 12px;
+  }
+}
