@@ -417,8 +417,9 @@ html[data-theme="dark"] .modal-actions button[type="button"] {
     position: static;
     margin-bottom: 12px;
   }
+}
 /* Лабораторна №5: зміна зовнішнього вигляду */
 body {
   background-color: #dcefea;
 }
-}
+
